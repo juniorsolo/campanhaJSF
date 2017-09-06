@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h:form id="formCadastroCampanha" style="width: 600px; margin: 5% 30% 5% 30%;">
+		<p:growl id="msgs" showDetail="true" />
+		<p:layoutUnit >
+
+			<h3>Cadastro de campanhas</h3>
+			<p:panel id="basic" >
+				<h:panelGrid columns="2" cellpadding="10">
+		
+					<p:outputLabel for="nome" value="Nome:"  />
+					<p:inputText id="nome" />
+					
+					<p:outputLabel for="time" value="Time do coração:" />
+					<p:inputText id="time" />
+					
+					<p:outputLabel for="dataInicio" value="Data Início:" />
+					<p:inputText id="dataInicio" />
+					
+					<p:outputLabel for="dataFim" value="Data Fim:" />
+					<p:inputText id="dataFim" />
+				</h:panelGrid>
+			</p:panel>
+			
+		</p:layoutUnit>
+		<p:commandButton value="Submit" update="msgs"  icon="ui-icon-check" />
+	</h:form>
+</body>
+</html>
