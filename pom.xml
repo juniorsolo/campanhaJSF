@@ -7,14 +7,15 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-		<!-- essa implementação do JSF não trabalha por padrao com CDI e não o briga a colocar dependencia-->
+		<!-- essa implementação do JSF não trabalha por padrao com CDI e não o 
+			briga a colocar dependencia -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.6</version>
 		</dependency>
-	
-		
+
+
 		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -22,6 +23,18 @@
 			<version>6.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+
+		<!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
 	</dependencies>
 
 </project>
