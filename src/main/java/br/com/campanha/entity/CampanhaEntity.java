@@ -1,7 +1,16 @@
 package br.com.campanha.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 /**
  * 
@@ -9,47 +18,46 @@ import java.util.Date;
  *
  */
 
-//
-//@Entity
-//@Table(name="campanha", schema = "campanha")
+
+@Entity
+@Table(name="campanha", schema = "campanha")
 public class CampanhaEntity implements Serializable{
 
 
 	private static final long serialVersionUID = 4635838254483908061L;
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
 	
 	private Integer idTimeCoracao;
 	
-//	@Convert(converter=LocalDateAttributeConverter.class)
-//	private LocalDate dataInicio;
-	private Date dataInicio;
-
+	@Temporal(TemporalType.DATE)
+	private LocalDate dataInicioVigencia;
 	
-//	@Convert(converter=LocalDateAttributeConverter.class)
-//	@Column(unique=true)
-//	private LocalDate dataVigencia;
-	private Date dataVigencia;
-
+	@Temporal(TemporalType.DATE)
+	private LocalDate dataFimVigencia;
 	
-//	@Version
+	@Version
 	private Integer version;
 	
-	public CampanhaEntity(String nome, Integer idTimeCoracao, Date dataVigencia) {
-		super();
+	
+	public CampanhaEntity(Integer id, String nome, Integer idTimeCoracao, LocalDate dataInicioVigencia,
+			LocalDate dataFimVigencia) {
+		this.id = id;
 		this.nome = nome;
 		this.idTimeCoracao = idTimeCoracao;
-		this.dataVigencia = dataVigencia;
+		this.dataInicioVigencia = dataInicioVigencia;
+		this.dataFimVigencia = dataFimVigencia;
 	}
-	
+
 	public CampanhaEntity() {
+		//Construtor padrão
 		super();
 	}
-		
+
 	public Integer getId() {
 		return id;
 	}
@@ -61,29 +69,33 @@ public class CampanhaEntity implements Serializable{
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	public Date getDataInicio() {
-		return dataInicio;
-	}
-
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
 	}
 
 	public Integer getIdTimeCoracao() {
 		return idTimeCoracao;
 	}
+
 	public void setIdTimeCoracao(Integer idTimeCoracao) {
 		this.idTimeCoracao = idTimeCoracao;
 	}
-	public Date getDataVigencia() {
-		return dataVigencia;
+
+	public LocalDate getDataInicioVigencia() {
+		return dataInicioVigencia;
 	}
-	public void setDataVigencia(Date dataVigencia) {
-		this.dataVigencia = dataVigencia;
+
+	public void setDataInicioVigencia(LocalDate dataInicioVigencia) {
+		this.dataInicioVigencia = dataInicioVigencia;
+	}
+
+	public LocalDate getDataFimVigencia() {
+		return dataFimVigencia;
+	}
+
+	public void setDataFimVigencia(LocalDate dataFimVigencia) {
+		this.dataFimVigencia = dataFimVigencia;
 	}
 
 	public Integer getVersion() {
@@ -93,6 +105,8 @@ public class CampanhaEntity implements Serializable{
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
-	
+		
+ 
+
 	
 }
